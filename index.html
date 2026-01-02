@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/jpeg" href="download (2).jpeg">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Allura:wght@300;400;500&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+  <title>My Portfolio</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #F6F1EB;
+      color: #4A3F35;
+    }
+
+    /* HEADER */
+    header {
+      background: #FFFCFA;
+      padding: 40px 0 22px;
+      text-align: center;
+      border-bottom: 1px solid #E2D6CC;
+    }
+
+    /* MYPORTFOLIO */
+    .logo {
+      font-family: 'Allura';
+      color: #4A3F35;
+      font-size: 36px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      margin-bottom: 18px;
+    }
+
+    nav a {
+      color: #4A3F35;
+      margin: 0 18px;
+      text-decoration: none;
+      font-size: 15px;
+      letter-spacing: 1px;
+      position: relative;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      bottom: -8px;
+      width: 0;
+      height: 2px;
+      background: #E8B4B8;
+      transform: translateX(-50%);
+      transition: width 0.35s ease;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    main {
+      width: 85%;
+      margin: 20px auto;
+    }
+
+    section {
+      background: #FFFCFA;
+      padding: 45px;
+      border-radius: 16px;
+      box-shadow: 0 12px 35px rgba(0,0,0,0.08);
+    }
+
+    .home-section {
+      background: transparent;
+      box-shadow: none;
+      border-radius: 0;
+      padding-top: 4px;
+    }
+
+    .home-layout {
+      width: 100%;
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      align-items: center;
+      gap: 80px;
+    }
+
+    .home-left {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .home-left h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 68px;
+      font-weight: 600;
+      line-height: 1.1;
+      color: #4A3F35;
+    }
+
+    .home-left h1 span {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      color: #D69FA3;
+    }
+
+    .home-right {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+
+    .home-desc {
+      max-width: 420px;
+    }
+
+    .home-desc p {
+      font-size: 15px;
+      line-height: 1.9;
+      color: #6A5C52;
+    }
+
+    .home-photo img {
+      width: 420px;
+      height: 60px;
+      object-fit: cover;
+      border-radius: 14px;
+    }
+
+    #contact {
+      padding: 40px;
+      text-align: center;
+    }
+
+    #contact input,
+    #contact textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 12px;
+    }
+
+    #contact button {
+      padding: 10px 25px;
+      cursor: pointer;
+    }
+
+    .contact-icons {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .contact-icons a {
+      margin: 0 10px;
+      font-size: 24px;
+      color: #4A3F35;
+      text-decoration: none;
+    }
+
+    h2 {
+      margin-bottom: 15px;
+      font-weight: 500;
+      color: #D69FA3;
+    }
+
+    p {
+      line-height: 1.8;
+      margin-bottom: 10px;
+    }
+
+    /* ABOUT */
+    .about-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 50px;
+      margin-bottom: 80px;
+    }
+
+    .about-text {
+      flex: 1;
+    }
+
+    .about-text h2 {
+      color: #4A3F35;
+      margin-bottom: 16px;
+    }
+
+    .about-text p {
+      line-height: 1.8;
+      margin-bottom: 12px;
+      color: #6A5C52;
+    }
+
+    .about-photo {
+      flex: 1;
+      text-align: center;
+    }
+
+    .about-photo img {
+      width: 220px;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 50%;
+      background: #F6F1EB;
+    }
+
+    /* SKILL */
+    .skill-section {
+      text-align: center;
+    }
+
+    .skill-section h2 {
+      margin-bottom: 8px;
+      color: #4A3F35;
+    }
+
+    .skill-desc {
+      margin-bottom: 35px;
+      color: #8B7E74;
+    }
+
+    .skill-grid {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .skill-card {
+      background: #F6F1EB;
+      padding: 35px 40px;
+      border-radius: 16px;
+      color: #4A3F35;
+      width: 180px;
+    }
+
+    /* PROJECT */
+    .project-wrapper {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 30px;
+      max-width: 1000px;
+      margin: 40px auto 0;
+    }
+
+    .project-card:nth-child(1) {
+      grid-column: 1 / 3;
+    }
+
+    .project-card:nth-child(2) {
+      grid-column: 3 / 5;
+    }
+
+    .project-card:nth-child(3) {
+      grid-column: 5 / 7;
+    }
+
+    .project-card:nth-child(4) {
+      grid-column: 2 / 4;
+    }
+
+    .project-card:nth-child(5) {
+      grid-column: 4 / 6;
+    }
+
+    .project-card {
+      width: 280px;
+      text-align: center;
+      transform: scale(0.95);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .project-card:hover {
+      transform: scale(1);
+      box-shadow: 0 18px 40px rgba(0,0,0,0.12);
+    }
+
+    .project-card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+    }
+
+    .project-title {
+      margin-top: 12px;
+      font-size: 15px;
+      color: #4A3F35;
+      letter-spacing: 0.5px;
+    }
+
+    /* MEDIA */
+    .media-grid {
+      display: grid;
+      justify-content: center;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .media-box {
+      background: #F6F1EB;
+      padding: 15px;
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    /* LINK DOC*/
+    a {
+      color: #D69FA3;
+    }
+
+    a:hover {
+      color: #C9898E;
+    }
+
+    /* =========================
+   RESPONSIVE MOBILE
+   ========================= */
+@media (max-width: 768px) {
+
+  header {
+    padding: 25px 0 18px;
+  }
+
+  .logo {
+    font-size: 28px;
+  }
+
+  nav a {
+    margin: 0 10px;
+    font-size: 13px;
+  }
+
+  main {
+    width: 92%;
+  }
+
+  /* HOME */
+  .home-layout {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    min-height: auto;
+    text-align: center;
+  }
+
+  .home-left h1 {
+    font-size: 46px;
+  }
+
+  .home-right {
+    align-items: center;
+  }
+
+  .home-desc {
+    max-width: 100%;
+  }
+
+  .home-photo img {
+    width: 100%;
+    height: auto;
+  }
+
+  /* ABOUT */
+  .about-wrapper {
+    flex-direction: column-reverse;
+    gap: 30px;
+    text-align: center;
+  }
+
+  .about-photo img {
+    width: 180px;
+    height: 180px;
+  }
+
+  /* SKILL */
+  .skill-grid {
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .skill-card {
+    width: 140px;
+    padding: 25px;
+  }
+
+  /* PROJECT */
+  .project-wrapper {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .project-card {
+    width: 100%;
+  }
+
+  /* MEDIA */
+  .media-grid {
+    grid-template-columns: 1fr;
+  }
+
+  video {
+    height: auto !important;
+  }
+
+}
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">MyPortfolio</div>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#contact">Contact</a>
+      <a href="#profile">Profile</a>
+      <a href="#project">Karya & Project</a>
+      <a href="#media">Media</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- HOME -->
+    <section id="home" class="home-section">
+      <div class="home-layout">
+
+        <div class="home-left">
+          <h1>
+            Hi,<br>
+            <span>Welcome!</span>
+          </h1>
+        </div>
+
+        <div class="home-right">
+          <div class="home-desc">
+            <p>
+              Website ini merupakan portofolio pribadi yang digunakan untuk
+              menampilkan profil, karya, proyek, serta media. Berfokus pada
+              tampilan yang rapi, elegan, minimalis, dan mudah digunakan.
+            </p>
+          </div>
+
+          <div class="home-photo">
+            <img src="ribbon.png" alt="Foto Home">
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <h2>Contact Me</h2>
+
+      <form id="contactForm">
+        <input type="text" id="name" placeholder="Nama" required>
+        <input type="email" id="email" placeholder="Email" required>
+        <textarea id="message" placeholder="Pesan" rows="5" required></textarea>
+        <button type="submit">Kirim</button>
+      </form>
+
+      <p id="status"></p>
+
+      <div class="contact-icons">
+        <a href="https://instagram.com/alunnavila_" target="_blank">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="mailto:lunnavilaaa@gmail.com">
+          <i class="fas fa-envelope"></i>
+        </a>
+        <a href="https://tiktok.com/@_hyperionz" target="_blank">
+          <i class="fab fa-tiktok"></i>
+        </a>
+      </div>
+    </section>
+
+    <!-- PROFILE -->
+    <section id="profile" class="profile-section" style="margin-top:80px;">
+      <div class="about-wrapper">
+        <div class="about-text">
+          <h2>Tentang Saya</h2>
+          <p>
+            Halo~ nama saya Alun Navila Napriyanti, saya merupakan mahasiswi dari Universitas Pamulang.
+            Saya sedang mendalami bidang pengembangan website. Saya memiliki ketertarikan
+            yang besar terhadap pembuatan tampilan website yang rapi, responsif di berbagai perangkat, dan mudah
+            digunakan. Fokus utama saya adalah menciptakan interface yang tidak hanya menarik secara visual,
+            tetapi juga memberikan pengalaman pengguna yang optimal.
+          </p>
+        </div>
+
+        <div class="about-photo">
+          <img src="profilepic.png" alt="Foto Profil">
+        </div>
+      </div>
+
+      <div class="skill-section">
+        <h2>Keahlian</h2>
+        <p class="skill-desc">Beberapa hal yang sedang saya pelajari</p>
+
+        <div class="skill-grid">
+          <div class="skill-card">HTML</div>
+          <div class="skill-card">CSS</div>
+          <div class="skill-card">JAVASCRIPT</div>
+          <div class="skill-card">UI/UX</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECT -->
+    <section id="project" style="margin-top:80px;">
+      <h2 style="text-align:center;">Karya & Project</h2>
+      <div class="project-wrapper">
+        <div class="project-card">
+          <img src="Screenshot (90).png" alt="Project 1">
+          <p class="project-title">MockUp Website Lirik Lagu Blackpink</p>
+        </div>
+        <div class="project-card">
+          <img src="Screenshot (88).png" alt="Project 2">
+          <p class="project-title">Website Profile Pribadi</p>
+        </div>
+        <div class="project-card">
+          <img src="Screenshot (92).png" alt="Project 3">
+          <p class="project-title">Website Jadwal Kuliah</p>
+        </div>
+        <div class="project-card">
+          <img src="Screenshot (69).png" alt="Project 4">
+          <p class="project-title">MockUp Website E-Commerce Parfum</p>
+        </div>
+        <div class="project-card">
+          <img src="Screenshot (93).png" alt="Project 5">
+          <p class="project-title">Website Hitung BMI</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- MEDIA -->
+    <section id="media" style="margin-top:80px;">
+      <h2 style="text-align:center;">Media</h2>
+
+      <div class="media-grid">
+
+        <!-- VIDEO -->
+        <div class="media-box">
+          <video controls style="width:100%; height:80px; border-radius:10px;">
+            <source src="pesona unpam.mp4" type="video/mp4">
+          </video>
+          <p style="margin-top:8px;">Video</p>
+        </div>
+
+        <!-- GAMBAR -->
+        <div class="media-box">
+          <img src="pic.jpeg" alt="Foto Saya" style="width:100%; border-radius:10px;">
+          <p style="margin-top:8px;">Foto</p>
+        </div>
+
+        <!-- AUDIO -->
+        <div class="media-box">
+          <audio controls style="width:100%;">
+            <source src="numberonegirl.mp3" type="audio/mpeg">
+          </audio>
+          <p style="margin-top:8px;">Audio</p>
+        </div>
+
+      </div>
+
+      <!-- DOKUMEN -->
+      <h2 style="text-align:center; margin-top:40px;">Dokumen</h2>
+      <div class="media-grid">
+        <div class="media-box">
+          <a href="cv.pdf" target="_blank">Curriculum Vitae</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    document.getElementById("contactForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+      const message = document.getElementById("message").value;
+
+      if (name === "" || email === "" || message === "") {
+        alert("Tolong isi semua kolom ya!");
+        return;
+      }
+
+      document.getElementById("status").innerText = "Pesan berhasil dikirim! 💌";
+
+      this.reset();
+    });
+  </script>
+
+</body>
+</html>

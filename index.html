@@ -319,94 +319,43 @@
     }
 
     /* =========================
-   RESPONSIVE MOBILE
+   FIX PROJECT MOBILE
    ========================= */
+.project-wrapper {
+  justify-items: center;
+}
+
+.project-card {
+  width: 100%;
+  max-width: 320px;
+  background: #FFFCFA;
+  border-radius: 14px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.project-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+}
+
+/* MOBILE */
 @media (max-width: 768px) {
-
-  header {
-    padding: 25px 0 18px;
-  }
-
-  .logo {
-    font-size: 28px;
-  }
-
-  nav a {
-    margin: 0 10px;
-    font-size: 13px;
-  }
-
-  main {
-    width: 92%;
-  }
-
-  /* HOME */
-  .home-layout {
-    grid-template-columns: 1fr;
-    gap: 40px;
-    min-height: auto;
-    text-align: center;
-  }
-
-  .home-left h1 {
-    font-size: 46px;
-  }
-
-  .home-right {
-    align-items: center;
-  }
-
-  .home-desc {
-    max-width: 100%;
-  }
-
-  .home-photo img {
-    width: 100%;
-    height: auto;
-  }
-
-  /* ABOUT */
-  .about-wrapper {
-    flex-direction: column-reverse;
-    gap: 30px;
-    text-align: center;
-  }
-
-  .about-photo img {
-    width: 180px;
-    height: 180px;
-  }
-
-  /* SKILL */
-  .skill-grid {
-    flex-wrap: wrap;
-    gap: 20px;
-  }
-
-  .skill-card {
-    width: 140px;
-    padding: 25px;
-  }
-
-  /* PROJECT */
   .project-wrapper {
     grid-template-columns: 1fr;
-    gap: 25px;
   }
 
   .project-card {
-    width: 100%;
+    max-width: 100%;
   }
 
-  /* MEDIA */
-  .media-grid {
-    grid-template-columns: 1fr;
+  .project-card img {
+    height: 200px;
   }
-
-  video {
-    height: auto !important;
-  }
-
 }
   </style>
 </head>
